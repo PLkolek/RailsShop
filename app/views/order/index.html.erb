@@ -1,0 +1,26 @@
+<h1>Listing orders</h1>
+
+<% @orders.each do |order| %>
+    <h2><%=order.customer%>: <%=order.id%></h2>
+    <table>
+      <thead>
+      <tr>
+        <th>Name</th>
+        <th>Price</th>
+        <th>Quantity</th>
+        <th>Total</th>
+      </tr>
+      </thead>
+
+      <tbody>
+      <%order.order_lines.each do |order_line| %>
+          <tr>
+          <td><%= order_line.product.name %></td>
+          <td><%= order_line.product.price %></td>
+          <td><%= order_line.quantity %></td>
+          <td><%= order_line.total %></td>
+          </tr>
+      <%end%>
+      </tbody>
+    </table>
+<% end %>
